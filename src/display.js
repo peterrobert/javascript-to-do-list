@@ -1,6 +1,5 @@
 let home = () => {
-
-    const elements = `
+  const elements = `
     <section class="main_body">
         <div class="container-fluid">
             <div class="row">
@@ -22,18 +21,16 @@ let home = () => {
                 </div>
             </div>
         </div>
-    </section>`
+    </section>`;
 
-    let container = document.getElementById('content');
-    container.innerHTML = elements;
+  let container = document.getElementById("content");
+  container.innerHTML = elements;
 
-    return container
-
-
-}
+  return container;
+};
 
 let CreateToDoForm = () => {
-    const toDoFormElement = `
+  const toDoFormElement = `
     <div class="container">
         <form action="#">
         <div class="row">
@@ -94,95 +91,102 @@ let CreateToDoForm = () => {
         </div>
         </form>
       </div>
-    `
-    let container = document.getElementById('content');
-    container.innerHTML = toDoFormElement;
+    `;
+  let container = document.getElementById("content");
+  container.innerHTML = toDoFormElement;
 
-    return container
-}
-
+  return container;
+};
 
 let CreateProjectForm = () => {
-
   function setAttributes(el, attrs) {
     for (var key in attrs) {
       el.setAttribute(key, attrs[key]);
     }
   }
-    
-  let ProjectContainer = document.createElement('div');
+
+  let ProjectContainer = document.createElement("div");
   setAttributes(ProjectContainer, {
-    class: "container project_todo"
+    class: "container project_todo",
   });
 
-  let imgContainer = document.createElement('img');
-  setAttributes(imgContainer,{
+  let imgContainer = document.createElement("img");
+  setAttributes(imgContainer, {
     src: "/assets/145.png",
-    alt: 'images'
+    alt: "images",
   });
 
   ProjectContainer.append(imgContainer);
 
-  let formContainer = document.createElement('form');
-  setAttributes(formContainer,{
-    action: "#"
+  let formContainer = document.createElement("form");
+  setAttributes(formContainer, {
+    action: "#",
   });
 
-  let rowContainer = document.createElement('div');
-  setAttributes(rowContainer,{
-    class: "row"
+  let rowContainer = document.createElement("div");
+  setAttributes(rowContainer, {
+    class: "row",
   });
 
-  let colContainer = document.createElement('div');
-  setAttributes(colContainer,{
-    class: "col-25"
+  let colContainer = document.createElement("div");
+  setAttributes(colContainer, {
+    class: "col-25",
   });
 
-  let colContainer = document.createElement('div');
-  setAttributes(colContainer,{
-    class: "col-25"
+  let colContainer = document.createElement("div");
+  setAttributes(colContainer, {
+    class: "col-25",
   });
 
-  let labelContainer = document.createElement('label');
-  setAttributes(labelContainer ,{
-    for: "fname"
+  let labelContainer = document.createElement("label");
+  setAttributes(labelContainer, {
+    for: "project_title",
   });
 
   labelContainer.innerText = "Project name";
+  colContainer.append(labelContainer);
 
+  let colContainer2 = document.createElement("div");
+  setAttributes(colContainer2, {
+    class: "col-75",
+  });
+
+  let inputContainer = document.createElement("input");
+  setAttributes(inputContainer, {
+    type: "text",
+    id: "project_title",
+    name: "project_title",
+    placeholder: "Project Name",
+  });
+
+  colContainer2.append(inputContainer);
   rowContainer.append(colContainer);
+  rowContainer.append(colContainer2);
 
+  let rowContainer2 = document.createElement("div");
+  setAttributes(rowContainer2, {
+    class: "row",
+  });
+
+  let input2 = document.createElement("input");
+  setAttributes(input2, {
+    type: "submit",
+    value: "submit",
+  });
+
+  rowContainer2.append(input2);
 
   formContainer.append(rowContainer);
+  formContainer.append(rowContainer2);
 
+  let container = document.getElementById("content");
+  container.append(ProjectContainer);
 
+  return container;
+};
 
-    const ProjectForm = ` <div class="container project_todo">
-    <img src="/assets/145.png" alt="images" srcset="">
-    <form action="#">
-        <div class="row">
-            <div class="col-25">
-                <label for="fname">Project name</label>
-            </div>
-            <div class="col-75">
-                <input type="text" id="fname" name="project_title" placeholder="Project Name">
-            </div>
-        </div>
-        
-        <div class="row">
-            <input type="submit" value="Submit">
-        </div>
-    </form>
-</div>`
-
-    let container = document.getElementById('content');
-    container.innerHTML = ProjectForm;
-
-    return container
-
-}
 export {
-    home,
-    CreateToDoForm,
-    CreateProjectForm
-}
+  home,
+  CreateToDoForm,
+  CreateProjectForm
+};
