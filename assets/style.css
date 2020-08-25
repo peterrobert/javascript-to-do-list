@@ -147,6 +147,21 @@ nav button:focus{
     height: 250px;
   }
 
+  #sub_btn{
+    background-color: mediumpurple;
+    color: #fff;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    position: relative;
+    text-transform: uppercase;
+    border: unset;
+    border-radius: 9px;
+    font-size: 20px;
+    left: -20px;
+  }
+
   
   /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 600px) {

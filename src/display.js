@@ -1,192 +1,199 @@
-let home = () => {
-  const elements = `
-    <section class="main_body">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="bac_image">
+class PageDisplay {
 
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="title_desc">
-                        <h1>create a To Do List and keep truck of your daily tasks</h1>
-                        <p>be on time with your tasks and complete them. Set daily goals and achieve them</p>
-
-                        <button class="create_btn" id = "create_to_do">
-                            create new todo's
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>`;
-
-  let container = document.getElementById("content");
-  container.innerHTML = elements;
-
-  return container;
-};
-
-let CreateToDoForm = () => {
-  const toDoFormElement = `
-    <div class="container">
-        <form action="#">
-        <div class="row">
-          <div class="col-25">
-            <label for="fname">Title</label>
-          </div>
-          <div class="col-75">
-            <input type="text" id="fname" name="title" placeholder="to do list title">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-            <label for="description">description</label>
-          </div>
-          <div class="col-75">
-            <input type="text" id="description" name="description" placeholder="description..">
-          </div>
-        </div>
-        <div class="row">
-            <div class="col-25">
-              <label for="date">date</label>
-            </div>
-            <div class="col-75">
-              <input type="date" id="date" name="description" placeholder="description..">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-25">
-              <label for="priority">priority: From 1 to 10</label>
-            </div>
-            <div class="col-75">
-              <input type="number" id="priority" name="priority" placeholder="number"  min="1" max="10">
-            </div>
-          </div>
-        <div class="row">
-          <div class="col-25">
-            <label for="group">Group</label>
-          </div>
-          <div class="col-75">
-            <select id="group" name="group">
-              <option value="australia">Australia</option>
-              <option value="canada">Canada</option>
-              <option value="usa">USA</option>
-            </select>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-            <label for="summary">Summary</label>
-          </div>
-          <div class="col-75">
-            <textarea id="summary" name="summary" placeholder="Write something.." style="height:200px"></textarea>
-          </div>
-        </div>
-        <div class="row">
-          <input type="submit" value="Submit">
-        </div>
-        </form>
-      </div>
-    `;
-  let container = document.getElementById("content");
-  container.innerHTML = toDoFormElement;
-
-  return container;
-};
-
-let CreateProjectForm = () => {
-  function setAttributes(el, attrs) {
-    for (var key in attrs) {
-      el.setAttribute(key, attrs[key]);
+  static homePage() {
+    function setAttributes(el, attrs) {
+      for (var key in attrs) {
+        el.setAttribute(key, attrs[key]);
+      }
     }
+
+    // remove container
+    let removeCont = document.createElement('div');
+    setAttributes(removeCont, {
+      class: "remove_cont"
+    });
+
+    let sectionElem = document.createElement('section');
+    setAttributes(sectionElem, {
+      class: "main_body"
+    });
+
+    let sectionContainer = document.createElement('div');
+    setAttributes(sectionContainer, {
+      class: "container-fluid"
+    });
+
+    // append row container to section container
+
+    let rowContainer = document.createElement('div');
+    setAttributes(rowContainer, {
+      class: "row"
+    });
+
+    // append colContainer to row container
+
+    let colContainer = document.createElement('div');
+    setAttributes(colContainer, {
+      class: "col-md-6"
+    });
+
+    let bacContainer = document.createElement('div');
+    setAttributes(bacContainer, {
+      class: "bac_image"
+    });
+
+    colContainer.append(bacContainer);
+    rowContainer.append(colContainer);
+
+    // append colContainer2 to row container
+    let colContainer2 = document.createElement('div');
+    setAttributes(colContainer2, {
+      class: "col-md-6"
+    });
+
+    let titleDesc = document.createElement('div');
+    setAttributes(titleDesc, {
+      class: "title_desc"
+    });
+
+
+    let h1Desc = document.createElement('h1');
+    h1Desc.innerText = "create a To Do List and keep truck of your daily tasks";
+    titleDesc.append(h1Desc);
+
+    let pDesc = document.createElement('p');
+    pDesc.innerText = "be on time with your tasks and complete them. Set daily goals and achieve them";
+    titleDesc.append(pDesc);
+
+    let btnDesc = document.createElement('button');
+    setAttributes(btnDesc, {
+      class: "create_btn",
+      id: "create_btn"
+    });
+    btnDesc.innerText = "create new todo's";
+    titleDesc.append(btnDesc);
+
+    colContainer2.append(titleDesc);
+
+    rowContainer.append(colContainer2);
+
+    sectionContainer.append(rowContainer);
+
+    // section
+    sectionElem.append(sectionContainer);
+    removeCont.append(sectionElem);
+
+
+    let container = document.getElementById("content");
+    container.append(removeCont);
+
+    return container;
+
+
+  };
+
+  static CreateProjectForm() {
+    function setAttributes(el, attrs) {
+      for (var key in attrs) {
+        el.setAttribute(key, attrs[key]);
+      }
+    }
+
+    let ProjectContainer = document.createElement("div");
+    setAttributes(ProjectContainer, {
+      class: "container project_todo",
+    });
+
+    let imgContainer = document.createElement("img");
+    setAttributes(imgContainer, {
+      src: "/assets/145.png",
+      alt: "images",
+    });
+
+    //container
+    ProjectContainer.append(imgContainer);
+    // form container
+    let formContainer = document.createElement("form");
+    setAttributes(formContainer, {
+      action: "#",
+    });
+
+    let rowContainer4 = document.createElement("div");
+    setAttributes(rowContainer4, {
+      class: "row",
+    });
+
+    let colContainer4 = document.createElement("div");
+    setAttributes(colContainer4, {
+      class: "col-25",
+    });
+
+
+    let labelContainer = document.createElement("label");
+    setAttributes(labelContainer, {
+      for: "project_title",
+    });
+
+    labelContainer.innerText = "Project name";
+    colContainer4.append(labelContainer);
+
+    let colContainer5 = document.createElement("div");
+    setAttributes(colContainer5, {
+      class: "col-75",
+    });
+
+    let inputContainer = document.createElement("input");
+    setAttributes(inputContainer, {
+      type: "text",
+      id: "project_title",
+      name: "project_title",
+      placeholder: "Project Name",
+    });
+
+    colContainer5.append(inputContainer);
+
+    rowContainer4.append(colContainer4);
+    rowContainer4.append(colContainer5);
+
+
+    let rowContainer5 = document.createElement("div");
+    setAttributes(rowContainer5, {
+      class: "row",
+    });
+
+    let input2 = document.createElement("button");
+    setAttributes(input2, {
+      id: "sub_btn"
+    });
+    input2.innerText = "submit";
+
+
+
+
+    formContainer.append(rowContainer4);
+    formContainer.append(rowContainer5);
+
+    ProjectContainer.append(formContainer);
+    ProjectContainer.append(input2);
+
+    let container = document.getElementById("content");
+    container.append(ProjectContainer);
+
+    return container;
+  };
+
+  static DomManupilation() {
+
+    let btn_container = document.getElementById('sub_btn');
+
+    return {
+      btn_container
+    };
+
   }
 
-  let ProjectContainer = document.createElement("div");
-  setAttributes(ProjectContainer, {
-    class: "container project_todo",
-  });
-
-  let imgContainer = document.createElement("img");
-  setAttributes(imgContainer, {
-    src: "/assets/145.png",
-    alt: "images",
-  });
-
-  ProjectContainer.append(imgContainer);
-
-  let formContainer = document.createElement("form");
-  setAttributes(formContainer, {
-    action: "#",
-  });
-
-  let rowContainer = document.createElement("div");
-  setAttributes(rowContainer, {
-    class: "row",
-  });
-
-  let colContainer = document.createElement("div");
-  setAttributes(colContainer, {
-    class: "col-25",
-  });
-
-  let colContainer = document.createElement("div");
-  setAttributes(colContainer, {
-    class: "col-25",
-  });
-
-  let labelContainer = document.createElement("label");
-  setAttributes(labelContainer, {
-    for: "project_title",
-  });
-
-  labelContainer.innerText = "Project name";
-  colContainer.append(labelContainer);
-
-  let colContainer2 = document.createElement("div");
-  setAttributes(colContainer2, {
-    class: "col-75",
-  });
-
-  let inputContainer = document.createElement("input");
-  setAttributes(inputContainer, {
-    type: "text",
-    id: "project_title",
-    name: "project_title",
-    placeholder: "Project Name",
-  });
-
-  colContainer2.append(inputContainer);
-  rowContainer.append(colContainer);
-  rowContainer.append(colContainer2);
-
-  let rowContainer2 = document.createElement("div");
-  setAttributes(rowContainer2, {
-    class: "row",
-  });
-
-  let input2 = document.createElement("input");
-  setAttributes(input2, {
-    type: "submit",
-    value: "submit",
-  });
-
-  rowContainer2.append(input2);
-
-  formContainer.append(rowContainer);
-  formContainer.append(rowContainer2);
-
-  let container = document.getElementById("content");
-  container.append(ProjectContainer);
-
-  return container;
-};
+}
 
 export {
-  home,
-  CreateToDoForm,
-  CreateProjectForm
-};
+  PageDisplay
+}
