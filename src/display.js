@@ -148,6 +148,7 @@ class PageDisplay {
       id: "project_title",
       name: "project_title",
       placeholder: "Project Name",
+      id: "project_name"
     });
 
     colContainer5.append(inputContainer);
@@ -185,9 +186,11 @@ class PageDisplay {
   static DomManupilation() {
 
     let btn_container = document.getElementById('sub_btn');
+    let ProjectTitleVal = document.getElementById('project_name');
+    
 
     return {
-      btn_container
+      btn_container,ProjectTitleVal
     };
 
   }
