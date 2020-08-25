@@ -3,8 +3,21 @@ import {
 } from "./display.js";
 
 class Logic {
+
     static projectSubmit() {
         let Store = [];
+
+        let StorageContainer = () => {
+            // Check browser support
+            if (typeof (Storage) !== "undefined") {
+                // Store
+                localStorage.setItem("container", `${ Store }`);
+                // Retrieve
+                console.log(Store)
+            } else {
+                console.log('this hasnt worked');
+            }
+        }
 
         PageDisplay.DomManupilation().btn_container.addEventListener(
             "click",
@@ -21,20 +34,12 @@ class Logic {
             }
         );
 
-        let StorageContainer = () => {
-            // Check browser support
-            if (typeof (Storage) !== "undefined") {
-                // Store
-                localStorage.setItem("container", `${ Store }`);
-                // Retrieve
-              console.log(Store)
-            } else {
-              console.log('this hasnt worked');
-            }
-        }
 
-       
+
+
     };
+
+    
 
 }
 

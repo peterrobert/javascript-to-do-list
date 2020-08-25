@@ -183,14 +183,29 @@ class PageDisplay {
     return container;
   };
 
+  static DisplayProjects () {
+    let removeContProjects = document.createElement('div');
+    setAttributes(removeContProjects, {
+      class: "remove_cont"
+    });
+
+    let elP = document.createElement('p');
+    setAttributes(removeContProjects, {
+      id: "list_display"
+    });
+
+    removeContProjects.append(elP)
+  };
+
   static DomManupilation() {
 
     let btn_container = document.getElementById('sub_btn');
     let ProjectTitleVal = document.getElementById('project_name');
+    let disList = document.getElementById('list_display')
     
 
     return {
-      btn_container,ProjectTitleVal
+      btn_container,ProjectTitleVal,disList 
     };
 
   }
