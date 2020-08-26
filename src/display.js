@@ -98,6 +98,10 @@ class PageDisplay {
         el.setAttribute(key, attrs[key]);
       }
     }
+    let removeContainerForm = document.createElement('div');
+    setAttributes(removeContainerForm, {
+      class: "remove_cont"
+    })
 
     let ProjectContainer = document.createElement("div");
     setAttributes(ProjectContainer, {
@@ -176,25 +180,37 @@ class PageDisplay {
 
     ProjectContainer.append(formContainer);
     ProjectContainer.append(input2);
+    removeContainerForm.append(ProjectContainer)
 
     let container = document.getElementById("content");
-    container.append(ProjectContainer);
+    container.append(removeContainerForm);
+    
 
-    return container;
+    return container
   };
 
   static DisplayProjects () {
+    function setAttributes(el, attrs) {
+      for (var key in attrs) {
+        el.setAttribute(key, attrs[key]);
+      }
+    }
+    let container = document.getElementById('content');
     let removeContProjects = document.createElement('div');
     setAttributes(removeContProjects, {
       class: "remove_cont"
     });
 
-    let elP = document.createElement('p');
-    setAttributes(removeContProjects, {
+    let elP = document.createElement('div');
+    setAttributes(elP, {
       id: "list_display"
     });
 
-    removeContProjects.append(elP)
+  
+    
+    removeContProjects.append(elP);
+
+    container.append(removeContProjects);
   };
 
   static DomManupilation() {
