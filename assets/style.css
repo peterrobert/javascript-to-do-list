@@ -162,6 +162,15 @@ nav button:focus{
     left: -20px;
   }
 
+  .card-body{
+    border-radius: 4px;
+    border: 1px solid mediumpurple;
+    background-color: #fff;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+  }
+
   
   /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 600px) {

@@ -223,33 +223,71 @@ class PageDisplay {
       class: "remove_cont"
     });
 
+
+    // collapsable
+
     let elP = document.createElement('div');
     setAttributes(elP, {
-      id: "list_display"
+      id: "accordion",
+      class: "container"
     });
 
+    let card = document.createElement('div');
+    setAttributes(card, {
+      class: "card"
+    });
+ 
+    let cardHeader = document.createElement('div');
+    setAttributes(cardHeader , {
+      class: "card-header",
+      id: "headingOne"
+    });
 
-   const gettingData = () => {
+    
+    let Header5 = document.createElement('h5');
+    setAttributes(Header5  , {
+      class: "mb-0"
+    });
 
-      let ul = document.createElement('ul');
+    let Headerbtn = document.createElement('button');
+    setAttributes(Headerbtn  , {
+      class: "btn btn-link collapsed",
+      'data-toggle': "collapse",
+     'data-target' : "#collapseOne",
+     'aria-expanded': "true",
+     'aria-controls' : "collapseOne"
+    });
+    
+    Headerbtn.innerText = "this is the button for the project title"
 
-      db.collection('projects').get().then(snapshot => {
-        snapshot.docs.forEach(doc => {
+    
+    Header5.append(Headerbtn);
+    cardHeader.append(Header5);
+    card.append(cardHeader);
+    elP.append(card);
 
-          
-          let li = document.createElement("li");
-          li.innerText = doc.data().name
 
-          ul.append(li);
-          
-        });
-      })
+    let collapsecont = document.createElement('div');
+    setAttributes(collapsecont  , {
+      class: "collapse",
+      id: "collapseOne",
+      "aria-labelledby": "headingOne",
+      'data-parent': "#accordion"
+    });
 
-     return ul;
-    }
-
-    elP.append(gettingData());
+    let cardbody = document.createElement('div');
+    setAttributes(cardbody   , {
+      class: "card-body"
   
+    });
+
+    cardbody.innerText = "this is where the body goes"
+
+
+
+   collapsecont.append(cardbody);
+    elP.append(collapsecont);
+
   
     removeContProjects.append(elP);
     container.append(removeContProjects);
