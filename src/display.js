@@ -1,3 +1,5 @@
+import { Project } from "./project";
+
 class PageDisplay {
 
   static homePage() {
@@ -189,6 +191,26 @@ class PageDisplay {
     return container
   };
 
+ 
+
+  static savingProject() {
+
+    let btn_container = document.getElementById('sub_btn');
+    let ProjectTitleVal = document.getElementById('project_name')
+    let disList = document.getElementById('list_display')
+    
+    btn_container.addEventListener('click', () => {
+    
+      let project = new Project(ProjectTitleVal.value);
+      project.savingData();
+
+      document.querySelector('.remove_cont').remove();
+      this.DisplayProjects();
+
+    })
+
+  }
+
   static DisplayProjects () {
     function setAttributes(el, attrs) {
       for (var key in attrs) {
@@ -206,25 +228,32 @@ class PageDisplay {
       id: "list_display"
     });
 
-  
-    
-    removeContProjects.append(elP);
 
+   const gettingData = () => {
+
+      let ul = document.createElement('ul');
+
+      db.collection('projects').get().then(snapshot => {
+        snapshot.docs.forEach(doc => {
+
+          
+          let li = document.createElement("li");
+          li.innerText = doc.data().name
+
+          ul.append(li);
+          
+        });
+      })
+
+     return ul;
+    }
+
+    elP.append(gettingData());
+  
+  
+    removeContProjects.append(elP);
     container.append(removeContProjects);
   };
-
-  static DomManupilation() {
-
-    let btn_container = document.getElementById('sub_btn');
-    let ProjectTitleVal = document.getElementById('project_name');
-    let disList = document.getElementById('list_display')
-    
-
-    return {
-      btn_container,ProjectTitleVal,disList 
-    };
-
-  }
 
 }
 

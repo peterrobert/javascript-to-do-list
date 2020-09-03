@@ -19,7 +19,9 @@
     "url": "https://github.com/peterrobert/javascript-to-do-list/issues"
   },
   "homepage": "https://github.com/peterrobert/javascript-to-do-list#readme",
-  "dependencies": {},
+  "dependencies": {
+    "firebase": "^7.19.1"
+  },
   "devDependencies": {
     "css-loader": "^3.6.0",
     "eslint": "^6.8.0",

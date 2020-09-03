@@ -1,8 +1,19 @@
 class Project {
 
-    constructor(name) {
-        this.name = name
+    constructor(_name) {
+
+        this.name = _name;
+        
     }
+
+    savingData(){
+
+      db.collection('projects').add({
+        name: this.name
+      });
+
+    }
+
 
 }
 

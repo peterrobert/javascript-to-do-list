@@ -2,6 +2,15 @@
 <html lang="en">
 
 <head>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -12,6 +21,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/style.css">
+
 </head>
 
 <body>
@@ -37,13 +47,29 @@
             </li>
         </ul>
     </nav>
-    
-   
+
+
     <div id="content"></div>
 
 
 
-
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAOiFOYoWNifCJRtA3xZlXbb857KZx635o",
+            authDomain: "javascriptwork-5fd36.firebaseapp.com",
+            databaseURL: "https://javascriptwork-5fd36.firebaseio.com",
+            projectId: "javascriptwork-5fd36",
+            storageBucket: "javascriptwork-5fd36.appspot.com",
+            messagingSenderId: "970927491831",
+            appId: "1:970927491831:web:91839e1a54e3386796e1f2",
+            measurementId: "G-HN3XZ1PN2C"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        const db = firebase.firestore();
+    </script>
 
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

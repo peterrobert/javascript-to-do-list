@@ -1,9 +1,23 @@
 import { PageDisplay } from "./display.js";
-import { Logic } from "./logic.js";
+
+
+
 
 window.onload = function () {
   PageDisplay.homePage();
 };
+
+// getting data
+db.collection('projects').get().then(snapshot => {
+
+  snapshot.docs.forEach(doc => {
+
+   console.log(doc.data().name)
+
+  });
+
+});
+
 
 
 
@@ -23,14 +37,11 @@ nav[0].addEventListener('click', () => {
 nav[1].addEventListener('click', () => {
     document.querySelector('.remove_cont').remove();
     PageDisplay.DisplayProjects();
-    Logic.StorageProjectsAccess()
 });
 
 
 nav[2].addEventListener('click', () => {
     document.querySelector('.remove_cont').remove();
     PageDisplay.CreateProjectForm();
-    Logic.projectSubmit()
+    PageDisplay.savingProject();
 });
-
-
