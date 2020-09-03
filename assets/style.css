@@ -170,7 +170,24 @@ nav button:focus{
     font-family: 'Roboto', sans-serif;
     font-weight: bolder;
   }
+  ul{
+    list-style: none;
+  }
 
+  .list-container ul li {
+    text-align: center;
+  }
+
+ .list-container ul li button{
+    margin-top: 10px;
+    width: 100%;
+    background-color: mediumpurple;
+    color: #fff;
+    text-transform: uppercase;
+    border: unset;
+    border-radius: 15px;
+    padding: 10px;
+  }
   
   /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 600px) {

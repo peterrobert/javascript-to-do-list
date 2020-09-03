@@ -7,18 +7,6 @@ window.onload = function () {
   PageDisplay.homePage();
 };
 
-// getting data
-db.collection('projects').get().then(snapshot => {
-
-  snapshot.docs.forEach(doc => {
-
-   console.log(doc.data().name)
-
-  });
-
-});
-
-
 
 
 let nav = [
@@ -37,6 +25,7 @@ nav[0].addEventListener('click', () => {
 nav[1].addEventListener('click', () => {
     document.querySelector('.remove_cont').remove();
     PageDisplay.DisplayProjects();
+    PageDisplay.gettingProject()
 });
 
 

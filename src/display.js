@@ -197,7 +197,6 @@ class PageDisplay {
 
     let btn_container = document.getElementById('sub_btn');
     let ProjectTitleVal = document.getElementById('project_name')
-    let disList = document.getElementById('list_display')
     
     btn_container.addEventListener('click', () => {
     
@@ -211,6 +210,7 @@ class PageDisplay {
 
   }
 
+  
   static DisplayProjects () {
     function setAttributes(el, attrs) {
       for (var key in attrs) {
@@ -223,76 +223,39 @@ class PageDisplay {
       class: "remove_cont"
     });
 
-
-    // collapsable
-
-    let elP = document.createElement('div');
-    setAttributes(elP, {
-      id: "accordion",
-      class: "container"
+    let listContainer = document.createElement('div');
+    setAttributes(listContainer, {
+      class: "list-container container"
     });
 
-    let card = document.createElement('div');
-    setAttributes(card, {
-      class: "card"
-    });
- 
-    let cardHeader = document.createElement('div');
-    setAttributes(cardHeader , {
-      class: "card-header",
-      id: "headingOne"
-    });
+    let ulcontainer = document.createElement('ul');
 
-    
-    let Header5 = document.createElement('h5');
-    setAttributes(Header5  , {
-      class: "mb-0"
-    });
+    db.collection('projects').get().then(snapshot => {
+      snapshot.docs.forEach(doc => {
+        
+        let liContainer = document.createElement('li');
+        let spanContainer = document.createElement('button');
+        setAttributes(spanContainer, {
+          'data-index': `${doc.id}`
+        })
+        spanContainer.innerText = doc.data().name;
 
-    let Headerbtn = document.createElement('button');
-    setAttributes(Headerbtn  , {
-      class: "btn btn-link collapsed",
-      'data-toggle': "collapse",
-     'data-target' : "#collapseOne",
-     'aria-expanded': "true",
-     'aria-controls' : "collapseOne"
-    });
-    
-    Headerbtn.innerText = "this is the button for the project title"
+        liContainer.append(spanContainer);
 
-    
-    Header5.append(Headerbtn);
-    cardHeader.append(Header5);
-    card.append(cardHeader);
-    elP.append(card);
+        ulcontainer.append(liContainer);
 
+      });
+    })
 
-    let collapsecont = document.createElement('div');
-    setAttributes(collapsecont  , {
-      class: "collapse",
-      id: "collapseOne",
-      "aria-labelledby": "headingOne",
-      'data-parent': "#accordion"
-    });
+    listContainer.append(ulcontainer);
 
-    let cardbody = document.createElement('div');
-    setAttributes(cardbody   , {
-      class: "card-body"
-  
-    });
-
-    cardbody.innerText = "this is where the body goes"
-
-
-
-   collapsecont.append(cardbody);
-    elP.append(collapsecont);
-
-  
-    removeContProjects.append(elP);
+    removeContProjects.append(listContainer);
     container.append(removeContProjects);
+
+    
   };
 
+ 
 }
 
 export {
