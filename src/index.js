@@ -8,13 +8,15 @@ window.onload = function () {
 };
 
 
-
 let nav = [
   document.getElementById("home"),
   document.getElementById("projects"),
-  document.getElementById("create_projects")
+  document.getElementById("create_projects"),
+  document.getElementById("create_to_do")
   
 ];
+
+console.log(nav[3])
 
 nav[0].addEventListener('click', () => {
     document.querySelector('.remove_cont').remove();
@@ -34,3 +36,9 @@ nav[2].addEventListener('click', () => {
     PageDisplay.CreateProjectForm();
     PageDisplay.savingProject();
 });
+
+nav[3].addEventListener('click', () => {
+  document.querySelector('.remove_cont').remove();
+  PageDisplay.CreateTodoForm();
+});
+
