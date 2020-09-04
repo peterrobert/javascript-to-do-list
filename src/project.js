@@ -1,5 +1,4 @@
 class Project {
-
     constructor(_name) {
 
         this.name = _name;
@@ -13,7 +12,6 @@ class Project {
       });
 
     }
-
 
 }
 

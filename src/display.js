@@ -244,39 +244,160 @@ class PageDisplay {
       }
     }
 
-    const Form = `<form>
-    <label for="title">title:</label>
-    <input type="text" name="title" id="title">
-    </br>
+    let FormToDoCont = document.createElement('form');
+    setAttributes(FormToDoCont, {
+      id: "todo-form",
+    });
 
-    <label for="description ">description :</label>
-    <textarea rows="4" cols="50" name="comment" form="usrform"> </textarea>
+    // title
+    let label1 = document.createElement('label');
+    setAttributes(label1, {
+      for: 'title'
+    });
+    label1.innerText = "title:";
 
-    <label for="date">date:</label>
-    <input type="date" name="date" id="date">
-    </br>
-    <label for="priority">Priority:</label>
-    <select id="priority" name="priority">
-      <option value="low">Low</option>
-      <option value="medium">Medium</option>
-      <option value="large">Large</option>
-    </select>
-    <br>
-    <input type="submit" id="submit_todo">
+    let input1 = document.createElement('input');
+    setAttributes(input1, {
+      type: 'text',
+      name: "title",
+      id: 'title'
+    });
+
+    FormToDoCont.append(label1);
+    FormToDoCont.append(input1);
+
+    // text area
+
+    let label2 = document.createElement('label');
+    setAttributes(label2, {
+      for: 'description'
+    });
+    label2.innerText = "description:";
+
+    let input2 = document.createElement('textarea');
+    setAttributes(input2, {
+      rows: '4',
+      cols: "50",
+      naame: "comment",
+      form: "usrform"
+    });
+
+    FormToDoCont.append(label2);
+    FormToDoCont.append(input2);
+
+    // date
+
+    let label3 = document.createElement('label');
+    setAttributes(label3, {
+      for: 'date'
+    });
+    label3.innerText = "date:";
+
+    let input3 = document.createElement('input');
+    setAttributes(input3, {
+      type: 'date',
+      name: "date",
+      id: 'date'
+    });
+
+    FormToDoCont.append(label3);
+    FormToDoCont.append(input3);
+
+    // projects
+
+    let label4 = document.createElement('label');
+    setAttributes(label4, {
+      for: 'projects'
+    });
+    label4.innerText = "projects:";
+
+    let input4 = document.createElement('select');
+    setAttributes(input4, {
+
+      name: "projects",
+      id: 'projects'
+    });
+
+    db.collection("projects").get().then((snapshot) => {
+      snapshot.docs.forEach(doc => {
+        let option4 = document.createElement('option');
+        setAttributes(option4, {
+
+          value: doc.id,
+        });
+
+        option4.innerText = doc.data().name
+
+        input4.append(option4);
+
+      });
+    })
+
+    FormToDoCont.append(label4);
+    FormToDoCont.append(input4);
+
+    // priority
+
+    let label5 = document.createElement('label');
+    setAttributes(label5, {
+      for: 'priority'
+    });
+    label5.innerText = "priority:";
+
+    let input5 = document.createElement('select');
+    setAttributes(input5, {
+      name: "projects",
+      id: 'projects'
+    });
+
+   let priorityArr = [ 'low', 'medium', 'high'];
+     
+   for (let i = 0; i < priorityArr.length; i++) {
     
-    </form>`;
+    let priorityOption = document.createElement("option");
+    setAttributes(priorityOption, {
+      value: priorityArr[i],
+    });
+
+    priorityOption.innerText = priorityArr[i];
+
+    input5.append(priorityOption);
+     
+   }
+
+    FormToDoCont.append(label5);
+    FormToDoCont.append(input5);
+
+    // button
+
+    let input6 = document.createElement('input');
+    setAttributes(input6 , {
+      type:"submit",
+      id: "submit_todo"
+    });
+
+    FormToDoCont.append(input6);
+
+
 
     let removeContainerTodo = document.createElement("div");
     setAttributes(removeContainerTodo, {
       class: "remove_cont container",
+      id: "container-to-do"
     });
 
-    removeContainerTodo.innerHTML = Form;
+    removeContainerTodo.append(FormToDoCont); 
 
     let container = document.getElementById("content");
     container.append(removeContainerTodo);
   }
+
+  static savingTodo() {
+
+  }
+
 }
+
 
 export {
   PageDisplay

@@ -1,13 +1,13 @@
 class ToDoList {
 
-    constructor(title, description, date, priority, done, group) {
+    constructor(_title, _description, _date, _project, _priority) {
 
         this.title = title;
         this.description = description;
         this.date = date;
-        this.priority = priority;
-        this.done = done;
-        this.group = group;
+        this.project = _project;
+        this.priority = _priority;
+        
     }
 
 }
