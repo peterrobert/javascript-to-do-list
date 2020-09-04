@@ -263,7 +263,7 @@ class PageDisplay {
     setAttributes(input1, {
       type: "text",
       name: "title",
-      id: "title",
+      id: "title_todo",
     });
 
     FormToDoCont.append(label1);
@@ -318,7 +318,7 @@ class PageDisplay {
     let input4 = document.createElement("select");
     setAttributes(input4, {
       name: "projects",
-      id: "projects",
+      id: "project",
     });
 
     db.collection("projects")
@@ -326,6 +326,7 @@ class PageDisplay {
       .then((snapshot) => {
         snapshot.docs.forEach((doc) => {
           let option4 = document.createElement("option");
+          
           setAttributes(option4, {
             value: doc.id,
           });
@@ -349,7 +350,7 @@ class PageDisplay {
 
     let input5 = document.createElement("select");
     setAttributes(input5, {
-      name: "projects",
+      name: "priority",
       id: "priority",
     });
 
@@ -394,19 +395,19 @@ class PageDisplay {
   static savingTodo() {
     let subBtn = document.getElementById("submit_todo");
 
-    let TodoInput = [
-      document.getElementById("title"),
-      document.getElementById("text_area"),
-      document.getElementById("date"),
-      document.getElementById("projects"),
-      document.getElementById("priority"),
-    ]
+    let title =  document.getElementById("title_todo");
+    let area  =  document.getElementById("text_area");
+    let date =  document.getElementById("date");
+    let project =  document.getElementById("project");
+   let priority =   document.getElementById("priority");
+
 
 
 
     subBtn.addEventListener("click", (e) => {
+     
       e.preventDefault();
-      let todoInitalize = new ToDoList(TodoInput[0].value, TodoInput[1].value, TodoInput[2].value, TodoInput[3].value, TodoInput[4].value)
+      let todoInitalize = new ToDoList(title.value, area.value,date.value, project.value, priority.value)
       todoInitalize.savingTodo()
     });
   }
