@@ -257,13 +257,14 @@ class PageDisplay {
     setAttributes(label1, {
       for: "title",
     });
-    label1.innerText = "title:";
+    label1.innerText = "title:(this field cant be empty)";
 
     let input1 = document.createElement("input");
     setAttributes(input1, {
       type: "text",
       name: "title",
       id: "title_todo",
+      required:''
     });
 
     FormToDoCont.append(label1);
@@ -275,7 +276,7 @@ class PageDisplay {
     setAttributes(label2, {
       for: "description",
     });
-    label2.innerText = "description:";
+    label2.innerText = "description:(this field cant be empty)";
 
     let input2 = document.createElement("textarea");
     setAttributes(input2, {
@@ -283,7 +284,8 @@ class PageDisplay {
       cols: "50",
       naame: "comment",
       form: "usrform",
-      id: "text_area"
+      id: "text_area",
+      required:''
     });
 
     FormToDoCont.append(label2);
@@ -295,7 +297,7 @@ class PageDisplay {
     setAttributes(label3, {
       for: "date",
     });
-    label3.innerText = "date:";
+    label3.innerText = "date:(this field cant be empty)";
 
     let input3 = document.createElement("input");
     setAttributes(input3, {
@@ -313,7 +315,7 @@ class PageDisplay {
     setAttributes(label4, {
       for: "projects",
     });
-    label4.innerText = "projects:";
+    label4.innerText = "projects:(this field cant be empty)";
 
     let input4 = document.createElement("select");
     setAttributes(input4, {
@@ -346,7 +348,7 @@ class PageDisplay {
     setAttributes(label5, {
       for: "priority",
     });
-    label5.innerText = "priority:";
+    label5.innerText = "priority:(this field cant be empty)";
 
     let input5 = document.createElement("select");
     setAttributes(input5, {
@@ -399,12 +401,13 @@ class PageDisplay {
     let area  =  document.getElementById("text_area");
     let date =  document.getElementById("date");
     let project =  document.getElementById("project");
-   let priority =   document.getElementById("priority");
-
-
+    let priority =   document.getElementById("priority");
 
 
     subBtn.addEventListener("click", (e) => {
+
+     
+
      
       e.preventDefault();
       let todoInitalize = new ToDoList(title.value, area.value,date.value, project.value, priority.value)
