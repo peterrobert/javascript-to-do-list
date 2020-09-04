@@ -1,6 +1,9 @@
 import {
   Project
 } from "./project";
+import {
+  ToDoList
+} from "./to_do_lists";
 
 class PageDisplay {
   static homePage() {
@@ -244,23 +247,23 @@ class PageDisplay {
       }
     }
 
-    let FormToDoCont = document.createElement('form');
+    let FormToDoCont = document.createElement("form");
     setAttributes(FormToDoCont, {
       id: "todo-form",
     });
 
     // title
-    let label1 = document.createElement('label');
+    let label1 = document.createElement("label");
     setAttributes(label1, {
-      for: 'title'
+      for: "title",
     });
     label1.innerText = "title:";
 
-    let input1 = document.createElement('input');
+    let input1 = document.createElement("input");
     setAttributes(input1, {
-      type: 'text',
+      type: "text",
       name: "title",
-      id: 'title'
+      id: "title",
     });
 
     FormToDoCont.append(label1);
@@ -268,18 +271,19 @@ class PageDisplay {
 
     // text area
 
-    let label2 = document.createElement('label');
+    let label2 = document.createElement("label");
     setAttributes(label2, {
-      for: 'description'
+      for: "description",
     });
     label2.innerText = "description:";
 
-    let input2 = document.createElement('textarea');
+    let input2 = document.createElement("textarea");
     setAttributes(input2, {
-      rows: '4',
+      rows: "4",
       cols: "50",
       naame: "comment",
-      form: "usrform"
+      form: "usrform",
+      id: "text_area"
     });
 
     FormToDoCont.append(label2);
@@ -287,17 +291,17 @@ class PageDisplay {
 
     // date
 
-    let label3 = document.createElement('label');
+    let label3 = document.createElement("label");
     setAttributes(label3, {
-      for: 'date'
+      for: "date",
     });
     label3.innerText = "date:";
 
-    let input3 = document.createElement('input');
+    let input3 = document.createElement("input");
     setAttributes(input3, {
-      type: 'date',
+      type: "date",
       name: "date",
-      id: 'date'
+      id: "date",
     });
 
     FormToDoCont.append(label3);
@@ -305,99 +309,108 @@ class PageDisplay {
 
     // projects
 
-    let label4 = document.createElement('label');
+    let label4 = document.createElement("label");
     setAttributes(label4, {
-      for: 'projects'
+      for: "projects",
     });
     label4.innerText = "projects:";
 
-    let input4 = document.createElement('select');
+    let input4 = document.createElement("select");
     setAttributes(input4, {
-
       name: "projects",
-      id: 'projects'
+      id: "projects",
     });
 
-    db.collection("projects").get().then((snapshot) => {
-      snapshot.docs.forEach(doc => {
-        let option4 = document.createElement('option');
-        setAttributes(option4, {
+    db.collection("projects")
+      .get()
+      .then((snapshot) => {
+        snapshot.docs.forEach((doc) => {
+          let option4 = document.createElement("option");
+          setAttributes(option4, {
+            value: doc.id,
+          });
 
-          value: doc.id,
+          option4.innerText = doc.data().name;
+
+          input4.append(option4);
         });
-
-        option4.innerText = doc.data().name
-
-        input4.append(option4);
-
       });
-    })
 
     FormToDoCont.append(label4);
     FormToDoCont.append(input4);
 
     // priority
 
-    let label5 = document.createElement('label');
+    let label5 = document.createElement("label");
     setAttributes(label5, {
-      for: 'priority'
+      for: "priority",
     });
     label5.innerText = "priority:";
 
-    let input5 = document.createElement('select');
+    let input5 = document.createElement("select");
     setAttributes(input5, {
       name: "projects",
-      id: 'projects'
+      id: "priority",
     });
 
-   let priorityArr = [ 'low', 'medium', 'high'];
-     
-   for (let i = 0; i < priorityArr.length; i++) {
-    
-    let priorityOption = document.createElement("option");
-    setAttributes(priorityOption, {
-      value: priorityArr[i],
-    });
+    let priorityArr = ["low", "medium", "high"];
 
-    priorityOption.innerText = priorityArr[i];
+    for (let i = 0; i < priorityArr.length; i++) {
+      let priorityOption = document.createElement("option");
+      setAttributes(priorityOption, {
+        value: priorityArr[i],
+      });
 
-    input5.append(priorityOption);
-     
-   }
+      priorityOption.innerText = priorityArr[i];
+
+      input5.append(priorityOption);
+    }
 
     FormToDoCont.append(label5);
     FormToDoCont.append(input5);
 
     // button
 
-    let input6 = document.createElement('input');
-    setAttributes(input6 , {
-      type:"submit",
-      id: "submit_todo"
+    let input6 = document.createElement("button");
+    setAttributes(input6, {
+      type: "submit",
+      id: "submit_todo",
     });
-
-    FormToDoCont.append(input6);
-
-
+    input6.innerText = "submit to do list";
 
     let removeContainerTodo = document.createElement("div");
     setAttributes(removeContainerTodo, {
       class: "remove_cont container",
-      id: "container-to-do"
+      id: "container-to-do",
     });
 
-    removeContainerTodo.append(FormToDoCont); 
+    removeContainerTodo.append(FormToDoCont);
+    removeContainerTodo.append(input6);
 
     let container = document.getElementById("content");
     container.append(removeContainerTodo);
   }
 
   static savingTodo() {
+    let subBtn = document.getElementById("submit_todo");
 
+    let TodoInput = [
+      document.getElementById("title"),
+      document.getElementById("text_area"),
+      document.getElementById("date"),
+      document.getElementById("projects"),
+      document.getElementById("priority"),
+    ]
+
+
+
+    subBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      let todoInitalize = new ToDoList(TodoInput[0].value, TodoInput[1].value, TodoInput[2].value, TodoInput[3].value, TodoInput[4].value)
+      todoInitalize.savingTodo()
+    });
   }
-
 }
-
 
 export {
   PageDisplay

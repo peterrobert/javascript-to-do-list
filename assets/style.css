@@ -198,6 +198,19 @@ nav button:focus{
   #container-to-do{
     padding: 80px;
   }
+
+  #submit_todo{
+    background-color: mediumpurple;
+    color: #fff;
+    padding: 8px;
+    text-transform: uppercase;
+    border: unset;
+    border-radius: 15px;
+  }
+
+  #submit_todo:focus{
+    outline: none;
+  }
   /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 600px) {
     .col-25, .col-75, input[type=submit] {

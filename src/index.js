@@ -3,9 +3,8 @@ import { PageDisplay } from "./display.js";
 
 
 
-window.onload = function () {
+
   PageDisplay.homePage();
-};
 
 
 let nav = [
@@ -40,5 +39,6 @@ nav[2].addEventListener('click', () => {
 nav[3].addEventListener('click', () => {
   document.querySelector('.remove_cont').remove();
   PageDisplay.CreateTodoForm();
+  PageDisplay.savingTodo();
 });
 

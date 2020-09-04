@@ -10,6 +10,15 @@ class ToDoList {
         
     }
 
+  savingTodo (){
+      db.collection('projects').doc(this.project).collection(this.title).add({
+          title:this.title,
+          description:this.description,
+          date: this.date,
+          priority: this.priority
+      })
+  }  
+
 }
 
 
