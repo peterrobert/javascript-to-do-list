@@ -1,276 +1,274 @@
-
-nav ul{
-    list-style: none;
-    display: flex;
-    flex-wrap: nowrap;
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 nav li {
-   
-    flex: 1;
-    text-align: left;
+  flex: 1;
+  text-align: left;
 }
 
-nav .pos{
-    color: #000;
-    top: 34px;
-    position: relative;
-    text-transform: uppercase;
-    font-weight: bold;
-    cursor: pointer;
+nav .pos {
+  color: #000;
+  top: 34px;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-nav button{
-    
-    background-color: mediumpurple;
-    color: #fff;
-    padding: 8px;
-    top: 23px;
-    position: relative;
-    text-transform: uppercase;
-    border: unset;
-    border-radius: 15px;
-    text-align: right;
+nav button {
+  background-color: mediumpurple;
+  color: #fff;
+  padding: 8px;
+  top: 23px;
+  position: relative;
+  text-transform: uppercase;
+  border: unset;
+  border-radius: 15px;
+  text-align: right;
 }
 
-nav button:focus{
-    outline: none;
+nav button:focus {
+  outline: none;
 }
 
-.logo{
-    height: 70px;
-    padding-top: unset;
+.logo {
+  height: 70px;
+  padding-top: unset;
 }
 
-.bac_image{
-    background-image: url("../assets/145.png");
-    width: 100%;
-    height: 500px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.bac_image {
+  background-image: url("../assets/145.png");
+  width: 100%;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.title_desc{
-    margin-top: 70px;
+.title_desc {
+  margin-top: 70px;
 }
 
-
-.title_desc h1{
-    text-transform: capitalize;
-    font-weight: 900;
-    line-height: 60px;
-    font-family: 'Anton', sans-serif;
-    margin-top: 40px;
+.title_desc h1 {
+  text-transform: capitalize;
+  font-weight: 900;
+  line-height: 60px;
+  font-family: "Anton", sans-serif;
+  margin-top: 40px;
 }
 
-.title_desc p{
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    text-transform: capitalize;
-    margin-top: 40px;
+.title_desc p {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  text-transform: capitalize;
+  margin-top: 40px;
 }
 
-.create_btn{
-    background-color: mediumpurple;
-    color: #fff;
-    padding: 8px;
-    top: 23px;
-    position: relative;
-    text-transform: uppercase;
-    border: unset;
-    border-radius: 15px;
-    text-align: right;
+.create_btn {
+  background-color: mediumpurple;
+  color: #fff;
+  padding: 8px;
+  top: 23px;
+  position: relative;
+  text-transform: uppercase;
+  border: unset;
+  border-radius: 15px;
+  text-align: right;
 }
-
 
 /*=== to do forms ==== */
 
 * {
-    box-sizing: border-box;
-  }
-  
-  input[type=text], select, textarea ,[type=date],[type=number] {
+  box-sizing: border-box;
+}
+
+input[type="text"],
+select,
+textarea,
+[type="date"],
+[type="number"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-family: "Anton", sans-serif;
+}
+
+input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 50px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.project_todo img {
+  height: 250px;
+}
+
+#sub_btn {
+  background-color: mediumpurple;
+  color: #fff;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  position: relative;
+  text-transform: uppercase;
+  border: unset;
+  border-radius: 9px;
+  font-size: 20px;
+  left: -20px;
+}
+
+.card-body {
+  border-radius: 4px;
+  border: 1px solid mediumpurple;
+  background-color: #fff;
+  color: #000;
+  font-family: "Roboto", sans-serif;
+  font-weight: bolder;
+}
+ul {
+  list-style: none;
+}
+
+.list-container ul li {
+  text-align: center;
+}
+
+.list-container ul li button {
+  margin-top: 10px;
+  width: 100%;
+  background-color: mediumpurple;
+  color: #fff;
+  text-transform: uppercase;
+  border: unset;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+#submit_todo {
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+#container-to-do {
+  padding: 80px;
+}
+
+#submit_todo {
+  background-color: mediumpurple;
+  color: #fff;
+  padding: 8px;
+  text-transform: uppercase;
+  border: unset;
+  border-radius: 15px;
+}
+
+#submit_todo:focus {
+  outline: none;
+}
+
+.list-container ul li button:focus {
+  outline: none;
+}
+
+.list-container ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list-container li {
+  border: 2px solid #eee;
+  width: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+.list-container li .header_list {
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 20px;
+  text-decoration: underline;
+  color: green;
+}
+
+.list-container li .desc {
+  text-transform: capitalize;
+  text-align: left;
+  padding-top: 30px;
+}
+
+.list-container li .date {
+  border: 1px solid #000;
+  padding: 5px;
+  color: purple;
+  font-weight: 900;
+  text-transform: uppercase;
+  border-radius: 20px;
+}
+
+.list-container li .priority {
+  text-transform: uppercase;
+  border: 1px solid #000;
+  padding: 5px;
+  color: purple;
+  font-weight: 900;
+  border-radius: 20px;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25,
+  .col-75,
+  input[type="submit"] {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
+    margin-top: 0;
   }
-  
-  label {
-    padding: 12px 12px 12px 0;
-    display: inline-block;
-    font-family: 'Anton', sans-serif;
-  }
-  
-  input[type=submit] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: right;
-  }
-  
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
-  
-  .container {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 50px;
-  }
-  
-  .col-25 {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
-  }
-  
-  .col-75 {
-    float: left;
-    width: 75%;
-    margin-top: 6px;
-  }
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
-  .project_todo img{
-    height: 250px;
-  }
-
-  #sub_btn{
-    background-color: mediumpurple;
-    color: #fff;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    position: relative;
-    text-transform: uppercase;
-    border: unset;
-    border-radius: 9px;
-    font-size: 20px;
-    left: -20px;
-  }
-
-  .card-body{
-    border-radius: 4px;
-    border: 1px solid mediumpurple;
-    background-color: #fff;
-    color: #000;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bolder;
-  }
-  ul{
-    list-style: none;
-  }
-
-  .list-container ul li {
-    text-align: center;
-  }
-
- .list-container ul li button{
-    margin-top: 10px;
-    width: 100%;
-    background-color: mediumpurple;
-    color: #fff;
-    text-transform: uppercase;
-    border: unset;
-    border-radius: 15px;
-    padding: 10px;
-  }
-  
-  #submit_todo{
-    margin-top: 10px;
-    width: 100%;
-    text-align: center;
-  }
-
-  #container-to-do{
-    padding: 80px;
-  }
-
-  #submit_todo{
-    background-color: mediumpurple;
-    color: #fff;
-    padding: 8px;
-    text-transform: uppercase;
-    border: unset;
-    border-radius: 15px;
-  }
-
-  #submit_todo:focus{
-    outline: none;
-  }
-
-  .list-container ul li button:focus{
-    outline: none;
-  }
-
-  .list-container ul{
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .list-container li{
-    border: 2px solid #eee;
-    width: 100%;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 20px;
-  }
-
-  .list-container li .header_list{
-    text-align: left;
-    text-transform: uppercase;
-    font-weight: bolder;
-    font-size: 20px;
-    text-decoration: underline;
-    color: green;
-  }
-
-  .list-container li .desc{
-    text-transform: capitalize;
-    text-align: left;
-    padding-top: 30px;
-  }
-
-  .list-container li .date{
-    
-    border: 1px solid #000;
-    padding: 5px;
-    color: purple;
-    font-weight: 900;
-    text-transform: uppercase;
-    border-radius: 20px;
-  }
-
-  .list-container li .priority{
-    
-    text-transform: uppercase;
-    border: 1px solid #000;
-    padding: 5px;
-    color: purple;
-    font-weight: 900;
-    border-radius: 20px;
-  }
-
-
-  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 600px) {
-    .col-25, .col-75, input[type=submit] {
-      width: 100%;
-      margin-top: 0;
-    }
 }
