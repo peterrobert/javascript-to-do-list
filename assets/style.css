@@ -79,7 +79,7 @@ nav button:focus {
   text-align: right;
 }
 
-/*=== to do forms ==== */
+/* === to do forms ==== */
 
 * {
   box-sizing: border-box;
@@ -136,7 +136,7 @@ input[type="submit"]:hover {
 }
 
 /* Clear floats after the columns */
-.row:after {
+.row::after {
   content: "";
   display: table;
   clear: both;
@@ -169,6 +169,7 @@ input[type="submit"]:hover {
   font-family: "Roboto", sans-serif;
   font-weight: bolder;
 }
+
 ul {
   list-style: none;
 }
@@ -192,19 +193,16 @@ ul {
   margin-top: 10px;
   width: 100%;
   text-align: center;
-}
-
-#container-to-do {
-  padding: 80px;
-}
-
-#submit_todo {
   background-color: mediumpurple;
   color: #fff;
   padding: 8px;
   text-transform: uppercase;
   border: unset;
   border-radius: 15px;
+}
+
+#container-to-do {
+  padding: 80px;
 }
 
 #submit_todo:focus {
