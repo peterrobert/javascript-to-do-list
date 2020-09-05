@@ -209,15 +209,6 @@ input[type="submit"]:hover {
   outline: none;
 }
 
-.list-container ul li button:focus {
-  outline: none;
-}
-
-.list-container ul {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .list-container li {
   border: 2px solid #eee;
   width: 100%;
@@ -226,6 +217,15 @@ input[type="submit"]:hover {
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 20px;
+}
+
+.list-container ul li button:focus {
+  outline: none;
+}
+
+.list-container ul {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .list-container li .header_list {
