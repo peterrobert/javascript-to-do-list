@@ -1,9 +1,5 @@
-import {
-  Project
-} from "./project";
-import {
-  ToDoList
-} from "./to_do_lists";
+import { Project } from "./project";
+import { ToDoList } from "./to_do_lists";
 
 class PageDisplay {
   static homePage() {
@@ -264,7 +260,7 @@ class PageDisplay {
       type: "text",
       name: "title",
       id: "title_todo",
-      required:''
+      required: "",
     });
 
     FormToDoCont.append(label1);
@@ -285,7 +281,7 @@ class PageDisplay {
       naame: "comment",
       form: "usrform",
       id: "text_area",
-      required:''
+      required: "",
     });
 
     FormToDoCont.append(label2);
@@ -328,7 +324,7 @@ class PageDisplay {
       .then((snapshot) => {
         snapshot.docs.forEach((doc) => {
           let option4 = document.createElement("option");
-          
+
           setAttributes(option4, {
             value: doc.id,
           });
@@ -397,25 +393,34 @@ class PageDisplay {
   static savingTodo() {
     let subBtn = document.getElementById("submit_todo");
 
-    let title =  document.getElementById("title_todo");
-    let area  =  document.getElementById("text_area");
-    let date =  document.getElementById("date");
-    let project =  document.getElementById("project");
-    let priority =   document.getElementById("priority");
-
+    let title = document.getElementById("title_todo");
+    let area = document.getElementById("text_area");
+    let date = document.getElementById("date");
+    let project = document.getElementById("project");
+    let priority = document.getElementById("priority");
 
     subBtn.addEventListener("click", (e) => {
-
-     
-
-     
       e.preventDefault();
-      let todoInitalize = new ToDoList(title.value, area.value,date.value, project.value, priority.value)
-      todoInitalize.savingTodo()
+      let todoInitalize = new ToDoList(
+        title.value,
+        area.value,
+        date.value,
+        project.value,
+        priority.value
+      );
+      todoInitalize.savingTodo();
+
+      document.querySelector(".remove_cont").remove();
+      this.DisplayProjects();
+    
     });
+  }
+
+  static displayToDo(){
+ 
+  
+
   }
 }
 
-export {
-  PageDisplay
-};
+export { PageDisplay };
