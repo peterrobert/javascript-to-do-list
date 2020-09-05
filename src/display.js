@@ -411,7 +411,7 @@ class PageDisplay {
       todoInitalize.savingTodo();
 
       document.querySelector(".remove_cont").remove();
-      this.DisplayProjects();
+      this.displayToDo()
     });
   }
 
@@ -442,7 +442,43 @@ class PageDisplay {
             .get()
             .then((snap) => {
               snap.docs.forEach((e) => {
-                console.log(e.data());
+
+                let liContainer = document.createElement("li");
+                let headerContainer = document.createElement("h3");
+                setAttributes(headerContainer, {
+                  class: "header_list",
+                });
+
+                headerContainer.innerText = e.data().title; 
+
+                let pargContainer = document.createElement("p");
+                setAttributes(pargContainer, {
+                  class: "desc",
+                });
+
+                pargContainer.innerText = e.data().description
+
+                let dateContainer = document.createElement("p");
+                setAttributes(dateContainer, {
+                  class: "date",
+                });
+                dateContainer.innerText =`date: ${e.data().date}` 
+
+                let priContainer = document.createElement("p");
+                setAttributes(priContainer, {
+                  class: "priority",
+                });
+                priContainer.innerText =`priority: ${e.data().priority}`; 
+
+               
+
+                liContainer.append(headerContainer);
+                liContainer.append(pargContainer );
+                liContainer.append(dateContainer );
+                liContainer.append(priContainer );
+
+                ulcontainer.append(liContainer);
+ 
             });
         });
     });
