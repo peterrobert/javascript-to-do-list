@@ -8,7 +8,7 @@ class ToDoList {
   }
 
   savingTodo() {
-    db.collection(`projects/${this.project}/toDos`).add({
+    db.collection(`projects/${this.project}/toDos`).add({ // eslint-disable-line no-undef
       title: this.title,
       description: this.description,
       date: this.date,
@@ -18,4 +18,4 @@ class ToDoList {
 }
 
 
-export { ToDoList };
+export { ToDoList }; // eslint-disable-line import/prefer-default-export

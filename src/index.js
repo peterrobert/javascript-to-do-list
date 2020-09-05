@@ -1,4 +1,4 @@
-import { PageDisplay } from './display.js';
+import { PageDisplay } from './display';
 
 
 PageDisplay.homePage();
@@ -12,12 +12,10 @@ const nav = [
   document.getElementById('to_do_list'),
 ];
 
-console.log(nav[3]);
 
 nav[0].addEventListener('click', () => {
   document.querySelector('.remove_cont').remove();
   PageDisplay.homePage();
-  console.log('clicked');
 });
 
 nav[1].addEventListener('click', () => {

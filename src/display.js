@@ -1,10 +1,11 @@
+/* eslint-disable  max-len, no-restricted-syntax, guard-for-in, no-dupe-keys, camelcase, no-trailing-spaces, no-plusplus */
 import { Project } from './project';
 import { ToDoList } from './to_do_lists';
 
 class PageDisplay {
   static homePage() {
     function setAttributes(el, attrs) {
-      for (const key in attrs) {
+      for (const key in attrs) { // eslint-disable-line no-restricted-syntax 
         el.setAttribute(key, attrs[key]);
       }
     }
@@ -145,7 +146,7 @@ class PageDisplay {
     const inputContainer = document.createElement('input');
     setAttributes(inputContainer, {
       type: 'text',
-      id: 'project_title',
+      id: 'project_title', 
       name: 'project_title',
       placeholder: 'Project Name',
       id: 'project_name',
@@ -212,7 +213,7 @@ class PageDisplay {
 
     const ulcontainer = document.createElement('ul');
 
-    db.collection('projects')
+    db.collection('projects')// eslint-disable-line no-undef
       .get()
       .then((snapshot) => {
         snapshot.docs.forEach((doc) => {
@@ -318,7 +319,7 @@ class PageDisplay {
       id: 'project',
     });
 
-    db.collection('projects')
+    db.collection('projects')// eslint-disable-line no-undef
       .get()
       .then((snapshot) => {
         snapshot.docs.forEach((doc) => {
@@ -433,11 +434,11 @@ class PageDisplay {
 
     const ulcontainer = document.createElement('ul');
 
-    db.collection('projects')
+    db.collection('projects')// eslint-disable-line no-undef
       .get()
       .then((snapshot) => {
         snapshot.docs.forEach((doc) => {
-          db.collection(`projects/${doc.id}/toDos`)
+          db.collection(`projects/${doc.id}/toDos`) // eslint-disable-line no-undef
             .get()
             .then((snap) => {
               snap.docs.forEach((e) => {
@@ -486,4 +487,5 @@ class PageDisplay {
       });
   }
 }
-export { PageDisplay };
+export { PageDisplay }; // eslint-disable-line import/prefer-default-export
+/* eslint-enable no-restricted-syntax, guard-for-in, no-dupe-keys, camelcase, no-trailing-spaces, no-plusplus */
