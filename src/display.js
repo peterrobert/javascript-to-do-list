@@ -412,15 +412,46 @@ class PageDisplay {
 
       document.querySelector(".remove_cont").remove();
       this.DisplayProjects();
-    
     });
   }
 
-  static displayToDo(){
- 
-  
+  static displayToDo() {
+    function setAttributes(el, attrs) {
+      for (var key in attrs) {
+        el.setAttribute(key, attrs[key]);
+      }
+    }
+    let container = document.getElementById("content");
+    let removeContProjects = document.createElement("div");
+    setAttributes(removeContProjects, {
+      class: "remove_cont",
+    });
 
+    let listContainer = document.createElement("div");
+    setAttributes(listContainer, {
+      class: "list-container container",
+    });
+
+    let ulcontainer = document.createElement("ul");
+
+    db.collection("projects")
+      .get()
+      .then((snapshot) => {
+        snapshot.docs.forEach((doc) => {
+          db.collection(`projects/${doc.id}/toDos`)
+            .get()
+            .then((snap) => {
+              snap.docs.forEach((e) => {
+                console.log(e.data());
+            });
+        });
+    });
+
+        listContainer.append(ulcontainer);
+
+        removeContProjects.append(listContainer);
+        container.append(removeContProjects);
+      });
   }
 }
-
 export { PageDisplay };
