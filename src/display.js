@@ -1,77 +1,79 @@
 /* eslint-disable  max-len, no-restricted-syntax, guard-for-in, no-dupe-keys, camelcase, no-trailing-spaces, no-plusplus */
-import { Project } from './project';
-import { ToDoList } from './to_do_lists';
+import { Project } from "./project";
+import { ToDoList } from "./to_do_lists";
 
 class PageDisplay {
   static homePage() {
     function setAttributes(el, attrs) {
-      for (const key in attrs) { // eslint-disable-line no-restricted-syntax 
+      for (const key in attrs) {
+        // eslint-disable-line no-restricted-syntax
         el.setAttribute(key, attrs[key]);
       }
     }
 
     // remove container
-    const removeCont = document.createElement('div');
+    const removeCont = document.createElement("div");
     setAttributes(removeCont, {
-      class: 'remove_cont',
+      class: "remove_cont",
     });
 
-    const sectionElem = document.createElement('section');
+    const sectionElem = document.createElement("section");
     setAttributes(sectionElem, {
-      class: 'main_body',
+      class: "main_body",
     });
 
-    const sectionContainer = document.createElement('div');
+    const sectionContainer = document.createElement("div");
     setAttributes(sectionContainer, {
-      class: 'container-fluid',
+      class: "container-fluid",
     });
 
     // append row container to section container
 
-    const rowContainer = document.createElement('div');
+    const rowContainer = document.createElement("div");
     setAttributes(rowContainer, {
-      class: 'row',
+      class: "row",
     });
 
     // append colContainer to row container
 
-    const colContainer = document.createElement('div');
+    const colContainer = document.createElement("div");
     setAttributes(colContainer, {
-      class: 'col-md-6',
+      class: "col-md-6",
     });
 
-    const bacContainer = document.createElement('div');
+    const bacContainer = document.createElement("div");
     setAttributes(bacContainer, {
-      class: 'bac_image',
+      class: "bac_image",
     });
 
     colContainer.append(bacContainer);
     rowContainer.append(colContainer);
 
     // append colContainer2 to row container
-    const colContainer2 = document.createElement('div');
+    const colContainer2 = document.createElement("div");
     setAttributes(colContainer2, {
-      class: 'col-md-6',
+      class: "col-md-6",
     });
 
-    const titleDesc = document.createElement('div');
+    const titleDesc = document.createElement("div");
     setAttributes(titleDesc, {
-      class: 'title_desc',
+      class: "title_desc",
     });
 
-    const h1Desc = document.createElement('h1');
-    h1Desc.innerText = 'create a To Do List and keep truck of your daily tasks';
+    const h1Desc = document.createElement("h1");
+    h1Desc.innerText = "create a To Do List and keep truck of your daily tasks";
     titleDesc.append(h1Desc);
 
-    const pDesc = document.createElement('p');
-    pDesc.innerText = 'be on time with your tasks and complete them. Set daily goals and achieve them';
+    const pDesc = document.createElement("p");
+    pDesc.innerText =
+      "be on time with your tasks and complete them. Set daily goals and achieve them";
     titleDesc.append(pDesc);
 
-    const btnDesc = document.createElement('button');
+    const btnDesc = document.createElement("button");
     setAttributes(btnDesc, {
-      class: 'create_btn',
+      class: "create_btn",
     });
-    btnDesc.innerText = 'The best task management tool';
+    btnDesc.innerText = "The best task management tool";
     titleDesc.append(btnDesc);
 
     colContainer2.append(titleDesc);
@@ -84,7 +86,7 @@ class PageDisplay {
     sectionElem.append(sectionContainer);
     removeCont.append(sectionElem);
 
-    const container = document.getElementById('content');
+    const container = document.getElementById("content");
     container.append(removeCont);
 
     return container;
@@ -96,60 +98,61 @@ class PageDisplay {
         el.setAttribute(key, attrs[key]);
       }
     }
-    const removeContainerForm = document.createElement('div');
+    const removeContainerForm = document.createElement("div");
     setAttributes(removeContainerForm, {
-      class: 'remove_cont',
+      class: "remove_cont",
     });
 
-    const ProjectContainer = document.createElement('div');
+    const ProjectContainer = document.createElement("div");
     setAttributes(ProjectContainer, {
-      class: 'container project_todo',
+      class: "container project_todo",
     });
 
-    const imgContainer = document.createElement('img');
+    const imgContainer = document.createElement("img");
     setAttributes(imgContainer, {
-      src: '/assets/145.png',
-      alt: 'images',
+      src: "/assets/145.png",
+      alt: "images",
     });
 
     // container
     ProjectContainer.append(imgContainer);
     // form container
-    const formContainer = document.createElement('form');
+    const formContainer = document.createElement("form");
     setAttributes(formContainer, {
-      action: '#',
+     id:'form-projects',
     });
 
-    const rowContainer4 = document.createElement('div');
+    const rowContainer4 = document.createElement("div");
     setAttributes(rowContainer4, {
-      class: 'row',
+      class: "row",
     });
 
-    const colContainer4 = document.createElement('div');
+    const colContainer4 = document.createElement("div");
     setAttributes(colContainer4, {
-      class: 'col-25',
+      class: "col-25",
     });
 
-    const labelContainer = document.createElement('label');
+    const labelContainer = document.createElement("label");
     setAttributes(labelContainer, {
-      for: 'project_title',
+      for: "project_title",
     });
 
-    labelContainer.innerText = 'Project name';
+    labelContainer.innerText = "Project name";
     colContainer4.append(labelContainer);
 
-    const colContainer5 = document.createElement('div');
+    const colContainer5 = document.createElement("div");
     setAttributes(colContainer5, {
-      class: 'col-75',
+      class: "col-75",
     });
 
-    const inputContainer = document.createElement('input');
+    const inputContainer = document.createElement("input");
     setAttributes(inputContainer, {
-      type: 'text',
-      id: 'project_title', 
-      name: 'project_title',
-      placeholder: 'Project Name',
-      id: 'project_name',
+      type: "text",
+      id: "project_title",
+      name: "project_title",
+      placeholder: "Project Name",
+      id: "project_name",
+      required: ''
     });
 
     colContainer5.append(inputContainer);
@@ -157,39 +160,41 @@ class PageDisplay {
     rowContainer4.append(colContainer4);
     rowContainer4.append(colContainer5);
 
-    const rowContainer5 = document.createElement('div');
+    const rowContainer5 = document.createElement("div");
     setAttributes(rowContainer5, {
-      class: 'row',
+      class: "row",
     });
 
-    const input2 = document.createElement('button');
+    const input2 = document.createElement('input');
     setAttributes(input2, {
-      id: 'sub_btn',
+      id: "sub_btn",
+      type: 'submit'
     });
-    input2.innerText = 'submit';
+    input2.innerText = "submit";
 
     formContainer.append(rowContainer4);
     formContainer.append(rowContainer5);
+    formContainer.append(input2);
 
     ProjectContainer.append(formContainer);
-    ProjectContainer.append(input2);
+    // ProjectContainer.append(input2);
     removeContainerForm.append(ProjectContainer);
 
-    const container = document.getElementById('content');
+    const container = document.getElementById("content");
     container.append(removeContainerForm);
 
     return container;
   }
 
   static savingProject() {
-    const btn_container = document.getElementById('sub_btn');
-    const ProjectTitleVal = document.getElementById('project_name');
+    const formContainerProject = document.getElementById('form-projects');
+    const ProjectTitleVal = document.getElementById("project_name");
 
-    btn_container.addEventListener('click', () => {
+    formContainerProject.addEventListener('submit', () => {
       const project = new Project(ProjectTitleVal.value);
       project.savingData();
 
-      document.querySelector('.remove_cont').remove();
+      document.querySelector(".remove_cont").remove();
       this.DisplayProjects();
     });
   }
@@ -200,27 +205,27 @@ class PageDisplay {
         el.setAttribute(key, attrs[key]);
       }
     }
-    const container = document.getElementById('content');
-    const removeContProjects = document.createElement('div');
+    const container = document.getElementById("content");
+    const removeContProjects = document.createElement("div");
     setAttributes(removeContProjects, {
-      class: 'remove_cont',
+      class: "remove_cont",
     });
 
-    const listContainer = document.createElement('div');
+    const listContainer = document.createElement("div");
     setAttributes(listContainer, {
-      class: 'list-container container',
+      class: "list-container container",
     });
 
-    const ulcontainer = document.createElement('ul');
+    const ulcontainer = document.createElement("ul");
 
-    db.collection('projects')// eslint-disable-line no-undef
+    db.collection("projects") // eslint-disable-line no-undef
       .get()
       .then((snapshot) => {
         snapshot.docs.forEach((doc) => {
-          const liContainer = document.createElement('li');
-          const spanContainer = document.createElement('button');
+          const liContainer = document.createElement("li");
+          const spanContainer = document.createElement("button");
           setAttributes(spanContainer, {
-            'data-index': `${doc.id}`,
+            "data-index": `${doc.id}`,
           });
           spanContainer.innerText = doc.data().name;
 
@@ -243,24 +248,24 @@ class PageDisplay {
       }
     }
 
-    const FormToDoCont = document.createElement('form');
+    const FormToDoCont = document.createElement("form");
     setAttributes(FormToDoCont, {
-      id: 'todo-form',
+      id: "todo-form",
     });
 
     // title
-    const label1 = document.createElement('label');
+    const label1 = document.createElement("label");
     setAttributes(label1, {
-      for: 'title',
+      for: "title",
     });
-    label1.innerText = 'title:(this field cant be empty)';
+    label1.innerText = "title:(this field cant be empty)";
 
-    const input1 = document.createElement('input');
+    const input1 = document.createElement("input");
     setAttributes(input1, {
-      type: 'text',
-      name: 'title',
-      id: 'title_todo',
-      required: '',
+      type: "text",
+      name: "title",
+      id: "title_todo",
+      required: "",
     });
 
     FormToDoCont.append(label1);
@@ -268,20 +273,20 @@ class PageDisplay {
 
     // text area
 
-    const label2 = document.createElement('label');
+    const label2 = document.createElement("label");
     setAttributes(label2, {
-      for: 'description',
+      for: "description",
     });
-    label2.innerText = 'description:(this field cant be empty)';
+    label2.innerText = "description:";
 
-    const input2 = document.createElement('textarea');
+    const input2 = document.createElement("textarea");
     setAttributes(input2, {
-      rows: '4',
-      cols: '50',
-      naame: 'comment',
-      form: 'usrform',
-      id: 'text_area',
-      required: '',
+      required: "",
+      rows: "4",
+      cols: "50",
+      naame: "comment",
+      form: "usrform",
+      id: "text_area",
     });
 
     FormToDoCont.append(label2);
@@ -289,17 +294,18 @@ class PageDisplay {
 
     // date
 
-    const label3 = document.createElement('label');
+    const label3 = document.createElement("label");
     setAttributes(label3, {
-      for: 'date',
+      for: "date",
     });
-    label3.innerText = 'date:(this field cant be empty)';
+    label3.innerText = "date:(this field cant be empty)";
 
-    const input3 = document.createElement('input');
+    const input3 = document.createElement("input");
     setAttributes(input3, {
-      type: 'date',
-      name: 'date',
-      id: 'date',
+      type: "date",
+      name: "date",
+      id: "date",
+      required: "",
     });
 
     FormToDoCont.append(label3);
@@ -307,23 +313,24 @@ class PageDisplay {
 
     // projects
 
-    const label4 = document.createElement('label');
+    const label4 = document.createElement("label");
     setAttributes(label4, {
-      for: 'projects',
+      for: "projects",
     });
-    label4.innerText = 'projects:(this field cant be empty)';
+    label4.innerText = "projects:(this field cant be empty)";
 
-    const input4 = document.createElement('select');
+    const input4 = document.createElement("select");
     setAttributes(input4, {
-      name: 'projects',
-      id: 'project',
+      name: "projects",
+      id: "project",
+      required: "",
     });
 
-    db.collection('projects')// eslint-disable-line no-undef
+    db.collection("projects") // eslint-disable-line no-undef
       .get()
       .then((snapshot) => {
         snapshot.docs.forEach((doc) => {
-          const option4 = document.createElement('option');
+          const option4 = document.createElement("option");
 
           setAttributes(option4, {
             value: doc.id,
@@ -340,22 +347,23 @@ class PageDisplay {
 
     // priority
 
-    const label5 = document.createElement('label');
+    const label5 = document.createElement("label");
     setAttributes(label5, {
-      for: 'priority',
+      for: "priority",
     });
-    label5.innerText = 'priority:(this field cant be empty)';
+    label5.innerText = "priority:(this field cant be empty)";
 
-    const input5 = document.createElement('select');
+    const input5 = document.createElement("select");
     setAttributes(input5, {
-      name: 'priority',
-      id: 'priority',
+      name: "priority",
+      id: "priority",
+      required: "",
     });
 
-    const priorityArr = ['low', 'medium', 'high'];
+    const priorityArr = ["low", "medium", "high"];
 
     for (let i = 0; i < priorityArr.length; i++) {
-      const priorityOption = document.createElement('option');
+      const priorityOption = document.createElement("option");
       setAttributes(priorityOption, {
         value: priorityArr[i],
       });
@@ -370,48 +378,50 @@ class PageDisplay {
 
     // button
 
-    const input6 = document.createElement('button');
+    const input6 = document.createElement("input");
     setAttributes(input6, {
-      type: 'submit',
-      id: 'submit_todo',
+      type: "submit",
+      id: "submit_todo",
     });
-    input6.innerText = 'submit to do list';
+    input6.innerText = "submit to do list";
 
-    const removeContainerTodo = document.createElement('div');
+    const removeContainerTodo = document.createElement("div");
     setAttributes(removeContainerTodo, {
-      class: 'remove_cont container',
-      id: 'container-to-do',
+      class: "remove_cont container",
+      id: "container-to-do",
     });
 
+    FormToDoCont.append(input6);
     removeContainerTodo.append(FormToDoCont);
-    removeContainerTodo.append(input6);
 
-    const container = document.getElementById('content');
+    const container = document.getElementById("content");
     container.append(removeContainerTodo);
   }
 
   static savingTodo() {
-    const subBtn = document.getElementById('submit_todo');
+    const formSubmitToDo = document.getElementById('todo-form');
 
-    const title = document.getElementById('title_todo');
-    const area = document.getElementById('text_area');
-    const date = document.getElementById('date');
-    const project = document.getElementById('project');
-    const priority = document.getElementById('priority');
+    const title = document.getElementById("title_todo");
+    const area = document.getElementById("text_area");
+    const date = document.getElementById("date");
+    const project = document.getElementById("project");
+    const priority = document.getElementById("priority");
 
-    subBtn.addEventListener('click', (e) => {
+    formSubmitToDo.addEventListener("submit", (e) => {
       e.preventDefault();
-      const todoInitalize = new ToDoList(
-        title.value,
-        area.value,
-        date.value,
-        project.value,
-        priority.value,
-      );
-      todoInitalize.savingTodo();
+      
+        const todoInitalize = new ToDoList(
+          title.value,
+          area.value,
+          date.value,
+          project.value,
+          priority.value
+        );
+        todoInitalize.savingTodo();
 
-      document.querySelector('.remove_cont').remove();
-      this.displayToDo();
+        document.querySelector(".remove_cont").remove();
+        this.displayToDo();
+      
     });
   }
 
@@ -421,20 +431,20 @@ class PageDisplay {
         el.setAttribute(key, attrs[key]);
       }
     }
-    const container = document.getElementById('content');
-    const removeContProjects = document.createElement('div');
+    const container = document.getElementById("content");
+    const removeContProjects = document.createElement("div");
     setAttributes(removeContProjects, {
-      class: 'remove_cont',
+      class: "remove_cont",
     });
 
-    const listContainer = document.createElement('div');
+    const listContainer = document.createElement("div");
     setAttributes(listContainer, {
-      class: 'list-container container',
+      class: "list-container container",
     });
 
-    const ulcontainer = document.createElement('ul');
+    const ulcontainer = document.createElement("ul");
 
-    db.collection('projects')// eslint-disable-line no-undef
+    db.collection("projects") // eslint-disable-line no-undef
       .get()
       .then((snapshot) => {
         snapshot.docs.forEach((doc) => {
@@ -442,33 +452,32 @@ class PageDisplay {
             .get()
             .then((snap) => {
               snap.docs.forEach((e) => {
-                const liContainer = document.createElement('li');
-                const headerContainer = document.createElement('h3');
+                const liContainer = document.createElement("li");
+                const headerContainer = document.createElement("h3");
                 setAttributes(headerContainer, {
-                  class: 'header_list',
+                  class: "header_list",
                 });
 
                 headerContainer.innerText = e.data().title;
 
-                const pargContainer = document.createElement('p');
+                const pargContainer = document.createElement("p");
                 setAttributes(pargContainer, {
-                  class: 'desc',
+                  class: "desc",
                 });
 
                 pargContainer.innerText = e.data().description;
 
-                const dateContainer = document.createElement('p');
+                const dateContainer = document.createElement("p");
                 setAttributes(dateContainer, {
-                  class: 'date',
+                  class: "date",
                 });
                 dateContainer.innerText = `date: ${e.data().date}`;
 
-                const priContainer = document.createElement('p');
+                const priContainer = document.createElement("p");
                 setAttributes(priContainer, {
-                  class: 'priority',
+                  class: "priority",
                 });
                 priContainer.innerText = `priority: ${e.data().priority}`;
-
 
                 liContainer.append(headerContainer);
                 liContainer.append(pargContainer);
