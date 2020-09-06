@@ -109,7 +109,7 @@ class PageDisplay {
 
     const imgContainer = document.createElement("img");
     setAttributes(imgContainer, {
-      src: "/assets/145.png",
+      src: "../assets/145.png",
       alt: "images",
     });
 
@@ -176,7 +176,6 @@ class PageDisplay {
     formContainer.append(input2);
 
     ProjectContainer.append(formContainer);
-    // ProjectContainer.append(input2);
     removeContainerForm.append(ProjectContainer);
 
     const container = document.getElementById("content");
