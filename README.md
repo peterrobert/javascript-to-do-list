@@ -29,7 +29,7 @@
 
 - To see the live site check here
 
-   [Live Demo Link](https://rawcdn.githack.com/peterrobert/javascript-to-do-list/2733ebeccaa4dfcf3ff5c410d3cb99b7550620c5/dist/index.html)
+   [Live Demo Link](https://rawcdn.githack.com/peterrobert/javascript-to-do-list/f393dde6f4bb69c892154545580360ba120b1618/dist/index.html)
 
 
 ## Authors  ![Hireable](https://img.shields.io/badge/HIREABLE-YES-yellowgreen&?style=for-the-badge)
