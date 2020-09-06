@@ -4,14 +4,12 @@ class Project {
   }
 
   savingProjectsToLocalStorage() {
-    let dataArr = [
-      this.name
+    const dataArr = [
+      this.name,
     ];
 
-    if (typeof(Storage) !== "undefined"){
-
+    if (typeof (Storage) !== 'undefined') {
       localStorage.setItem('projects', JSON.stringify(dataArr));
-      
     }
   }
 

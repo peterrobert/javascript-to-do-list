@@ -1,3 +1,4 @@
+/* eslint-disable  max-len, no-restricted-syntax, guard-for-in, quotes, no-dupe-keys, camelcase, no-trailing-spaces, no-plusplus */
 class ToDoList {
   constructor(_title, _description, _date, _project, _priority) {
     this.title = _title;
@@ -8,7 +9,7 @@ class ToDoList {
   }
 
   savingTodoLocalStorage() {
-    let dataArr = [
+    const dataArr = [
       this.title,
       this.description,
       this.date,
@@ -16,16 +17,13 @@ class ToDoList {
       this.priority,
     ];
 
-    if (typeof(Storage) !== "undefined"){
-
+    if (typeof (Storage) !== "undefined") {
       localStorage.setItem('todoList', JSON.stringify(dataArr));
-      
     }
   }
 
   savingTodo() {
-    db.collection(`projects/${this.project}/toDos`).add({
-      // eslint-disable-line no-undef
+    db.collection(`projects/${this.project}/toDos`).add({ // eslint-disable-line no-undef
       title: this.title,
       description: this.description,
       date: this.date,
