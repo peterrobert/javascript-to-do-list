@@ -1,4 +1,4 @@
-/* eslint-disable  max-len, no-restricted-syntax, guard-for-in, no-dupe-keys, camelcase, no-trailing-spaces, no-plusplus */
+/* eslint-disable  max-len, no-restricted-syntax, guard-for-in, quotes, no-dupe-keys, camelcase, no-trailing-spaces, no-plusplus */
 import { Project } from "./project";
 import { ToDoList } from "./to_do_lists";
 
@@ -65,8 +65,7 @@ class PageDisplay {
     titleDesc.append(h1Desc);
 
     const pDesc = document.createElement("p");
-    pDesc.innerText =
-      "be on time with your tasks and complete them. Set daily goals and achieve them";
+    pDesc.innerText = "be on time with your tasks and complete them. Set daily goals and achieve them";
     titleDesc.append(pDesc);
 
     const btnDesc = document.createElement("button");
@@ -119,7 +118,7 @@ class PageDisplay {
     // form container
     const formContainer = document.createElement("form");
     setAttributes(formContainer, {
-     id:'form-projects',
+      id: "form-projects",
     });
 
     const rowContainer4 = document.createElement("div");
@@ -152,7 +151,7 @@ class PageDisplay {
       name: "project_title",
       placeholder: "Project Name",
       id: "project_name",
-      required: ''
+      required: "",
     });
 
     colContainer5.append(inputContainer);
@@ -165,10 +164,10 @@ class PageDisplay {
       class: "row",
     });
 
-    const input2 = document.createElement('input');
+    const input2 = document.createElement("input");
     setAttributes(input2, {
       id: "sub_btn",
-      type: 'submit'
+      type: "submit",
     });
     input2.innerText = "submit";
 
@@ -187,10 +186,10 @@ class PageDisplay {
   }
 
   static savingProject() {
-    const formContainerProject = document.getElementById('form-projects');
+    const formContainerProject = document.getElementById("form-projects");
     const ProjectTitleVal = document.getElementById("project_name");
 
-    formContainerProject.addEventListener('submit', () => {
+    formContainerProject.addEventListener("submit", () => {
       const project = new Project(ProjectTitleVal.value);
       project.savingData();
 
@@ -399,7 +398,7 @@ class PageDisplay {
   }
 
   static savingTodo() {
-    const formSubmitToDo = document.getElementById('todo-form');
+    const formSubmitToDo = document.getElementById("todo-form");
 
     const title = document.getElementById("title_todo");
     const area = document.getElementById("text_area");
@@ -409,19 +408,18 @@ class PageDisplay {
 
     formSubmitToDo.addEventListener("submit", (e) => {
       e.preventDefault();
-      
-        const todoInitalize = new ToDoList(
-          title.value,
-          area.value,
-          date.value,
-          project.value,
-          priority.value
-        );
-        todoInitalize.savingTodo();
 
-        document.querySelector(".remove_cont").remove();
-        this.displayToDo();
-      
+      const todoInitalize = new ToDoList(
+        title.value,
+        area.value,
+        date.value,
+        project.value,
+        priority.value,
+      );
+      todoInitalize.savingTodo();
+
+      document.querySelector(".remove_cont").remove();
+      this.displayToDo();
     });
   }
 
