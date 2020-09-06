@@ -190,6 +190,7 @@ class PageDisplay {
 
     formContainerProject.addEventListener("submit", () => {
       const project = new Project(ProjectTitleVal.value);
+      project.savingProjectsToLocalStorage();
       project.savingData();
 
       document.querySelector(".remove_cont").remove();
@@ -415,6 +416,7 @@ class PageDisplay {
         project.value,
         priority.value,
       );
+      todoInitalize.savingTodoLocalStorage();
       todoInitalize.savingTodo();
 
       document.querySelector(".remove_cont").remove();
