@@ -1,6 +1,6 @@
 # Javascript-To-Do-List
 
-> The aim of this project was to create a to do list using Javascript classes.I implemented the single responsibility principal. I also used fire base (cloud firestore) to store my data.
+> The aim of this project was to create a to do list using Javascript classes.I implemented the single responsibility principal.I also used fire base to store my data.
 
 ![The App](itsGif.gif)
 
